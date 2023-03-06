@@ -17,7 +17,7 @@ const CustomButton = ({
         flex: fullWidth ? 1 : "unset",
         padding: "10px 15px",
         width: fullWidth ? "100%" : "fit-content",
-        maxWidth: 130,
+        minWidth: 130,
         backgroundColor,
         color,
         fontSize: 16,
@@ -26,6 +26,7 @@ const CustomButton = ({
         textTransform: "capitalize",
         "&:hover": {
           opacity: 0.9,
+          backgroundColor,
         },
       }}
       onClick={handleClick}
