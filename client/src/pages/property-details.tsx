@@ -1,5 +1,5 @@
-const propertyDetails = () => {
+const PropertyDetails = () => {
   return <div>propertyDetails</div>;
 };
 
-export default propertyDetails;
+export default PropertyDetails;

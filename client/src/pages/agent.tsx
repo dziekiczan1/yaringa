@@ -1,5 +1,5 @@
-const agent = () => {
+const Agent = () => {
   return <div>agent</div>;
 };
 
-export default agent;
+export default Agent;
