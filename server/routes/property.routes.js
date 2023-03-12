@@ -1,11 +1,11 @@
 import express from "express";
 
 import {
+  createProperty,
+  deleteProperty,
   getAllProperties,
   getPropertyDetail,
-  createProperty,
   updateProperty,
-  deleteProperty,
 } from "../controllers/property.controller.js";
 
 const router = express.Router();

@@ -1,13 +1,14 @@
 import Property from "../mongodb/models/property.js";
 import User from "../mongodb/models/user.js";
 
+import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import { v2 as cloudinary } from "cloudinary";
 
 dotenv.config();
 
 cloudinary.config({
-  clound_name: process.env.CLOUDINARY_CLOUD_NAME,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
@@ -24,6 +25,7 @@ const createProperty = async (req, res) => {
     session.startTransaction();
 
     const user = await User.findOne({ email }).session(session);
+
     if (!user) throw new Error("User not found");
 
     const photoUrl = await cloudinary.uploader.upload(photo);
