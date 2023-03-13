@@ -4,11 +4,19 @@ import { Box, Stack, Typography } from "@pankod/refine-mui";
 import { useNavigate } from "@pankod/refine-react-router-v6";
 
 import { PropertyCard, CustomButton } from "components";
+import { PropertyCardProps } from "interfaces/property";
 
 const AllProperties = () => {
   const navigate = useNavigate();
 
-  const { tableQueryResult: data, isLoading, isError } = useTable();
+  const {
+    tableQueryResult: { data, isLoading, isError },
+  } = useTable();
+
+  const allProperties = data?.data ?? []; // if we dont have data its gonna be empty array
+
+  if (isLoading) return <Typography>Loading...</Typography>;
+  if (isError) return <Typography>Error...</Typography>;
 
   return (
     <Box>
@@ -24,7 +32,18 @@ const AllProperties = () => {
           icon={<Add />}
         />
       </Stack>
-      <Box mt="20px" sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}></Box>
+      <Box mt="20px" sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
+        {allProperties.map((property) => (
+          <PropertyCard
+            key={property._id}
+            id={property._id}
+            title={property.title}
+            price={property.price}
+            location={property.location}
+            photo={property.photo}
+          />
+        ))}
+      </Box>
     </Box>
   );
 };
