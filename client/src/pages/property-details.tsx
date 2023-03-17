@@ -21,6 +21,8 @@ const PropertyDetails = () => {
 
   const { data, isLoading, isError } = queryResult;
 
+  console.log(data);
+
   return <div>propertyDetails</div>;
 };
 
