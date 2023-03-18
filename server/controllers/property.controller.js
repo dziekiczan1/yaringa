@@ -99,7 +99,25 @@ const createProperty = async (req, res) => {
 };
 
 const updateProperty = async (req, res) => {};
-const deleteProperty = async (req, res) => {};
+
+const deleteProperty = async (req, res) => {
+  let propertyToDelete;
+  try {
+    const { id } = req.params;
+    propertyToDelete = await Property.findById({ _id: id });
+
+    if (!propertyToDelete) {
+      throw new Error("Property not found");
+    }
+
+    propertyToDelete.deleteOne();
+    res
+      .status(200)
+      .json({ message: "Property deleted successfully", propertyToDelete });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 export {
   getAllProperties,

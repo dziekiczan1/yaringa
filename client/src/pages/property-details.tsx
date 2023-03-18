@@ -13,16 +13,14 @@ import {
 import { CustomButton } from "components";
 
 function checkImage(url: any) {
-  const img = new Image();
+  let img = new Image();
   img.src = url;
   return img.width !== 0 && img.height !== 0;
 }
 
 const PropertyDetails = () => {
   const navigate = useNavigate();
-  const { data: user } = useGetIdentity({
-    v3LegacyAuthProviderCompatible: true,
-  });
+  const { data: user } = useGetIdentity();
   const { queryResult } = useShow();
   const { mutate } = useDelete();
   const { id } = useParams();
@@ -42,7 +40,9 @@ const PropertyDetails = () => {
   const isCurrentUser = user.email === propertyDetails.creator.email;
 
   const handleDeleteProperty = () => {
-    const response = confirm("Are you sure you want to delete this property?");
+    const response = window.confirm(
+      "Are you sure you want to delete this property?"
+    );
     if (response) {
       mutate(
         {
@@ -193,10 +193,7 @@ const PropertyDetails = () => {
                 alt="avatar"
                 width={90}
                 height={90}
-                style={{
-                  borderRadius: "100%",
-                  objectFit: "cover",
-                }}
+                style={{ borderRadius: "100%", objectFit: "cover" }}
               />
 
               <Box mt="15px">
