@@ -1,4 +1,4 @@
-import { useList } from "@pankod/refine-core/dist/hooks";
+import { useList } from "@pankod/refine-core";
 import { Box, Typography } from "@mui/material";
 
 import { AgentCard } from "components";
