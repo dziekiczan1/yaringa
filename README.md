@@ -7,7 +7,7 @@ This is a code repository for the **Yaringa** project
 
 This application allows the user to add, edit and delete properites. My first app created using Refine.
 
-Stack used for this project: Refine, React, Node.js, MongoDB
+Stack used for this project: Refine, React, Typescript, Node.js, MongoDB
 
 ## Setup
 
