@@ -1,6 +1,6 @@
 # Yaringa Refine Dashboard
 
-![TikTik](https://piotr.rzadkowolski.dev/assets/proj17.webp)
+![Yaringa](https://piotr.rzadkowolski.dev/assets/proj17.webp)
 
 ## Introduction
 This is a code repository for the **Yaringa** project
